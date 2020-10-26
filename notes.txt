@@ -1,0 +1,20 @@
+import ftplib
+ ftp = ftplib.FTP()
+ host = "ftp.site.uk"
+ port = 21
+ ftp.connect(host, port)
+ print (ftp.getwelcome())
+ try:
+      print ("Logging in...")
+      ftp.login("yourusername", "yourpassword")
+ except:
+     "failed to login"
+#######################x
+	 
+from ftplib import FTP
+from pathlib import Path
+
+file_path = Path('kitten.jpg')
+
+with FTP('server.address.com', 'USER', 'PWD') as ftp, open(file_path, 'rb') as file:
+        ftp.storbinary(f'STOR {file_path.name}', file)	 
